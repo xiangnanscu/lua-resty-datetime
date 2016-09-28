@@ -10,6 +10,7 @@ Thread safe, lazy style, ffi based datetime library.
 local datetime = require"lua.resty.datetime".datetime
 local timedelta = require"lua.resty.datetime".timedelta
 
+-- x.string,  x.table, x.number
 -- create from string
 local x = datetime.new('2016-01-01 00:01:00') 
 
