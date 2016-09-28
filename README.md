@@ -1,6 +1,10 @@
 # lua-resty-datetime
 Thread safe, lazy style, ffi based datetime library.
 
+# Requirements
+1. linux 64 bit
+2. luajit 2.0 +
+
 # Synopsis
 ```
 local datetime = require"lua.resty.datetime".datetime
