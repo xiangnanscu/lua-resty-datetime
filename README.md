@@ -1,5 +1,5 @@
 # lua-resty-datetime
-Thread safe, ffi based datetime library.
+Thread safe, lazy style, ffi based datetime library.
 
 # Synopsis
 ```
@@ -21,6 +21,7 @@ local a = b + timedelta:new{day=2}
 print(b)
 print('after two days:',a)
 print()
+
 -- n, s, t are the same
 local n=3600
 local s='1970-01-01 01:00:00'
