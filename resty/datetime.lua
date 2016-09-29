@@ -48,9 +48,9 @@ local function localtime(sec)
 end
 local function mktime(t)
     local r = ffi.C.mktime(TimeStruct(
-        t.sec, 
-        t.min, 
-        t.hour,
+        t.sec or 0, 
+        t.min or 0, 
+        t.hour or 0,
         t.day, 
         t.month - 1, 
         t.year - 1900))
@@ -207,27 +207,27 @@ end
 
 
 local function test(...)
-    local x=datetime.new('2016-01-01 00:01:00')
-    local y=datetime.new(os.time())
-    local b=os.date('*t')
-    local a=datetime.new(b) + timedelta:new{day=2}
-    print(strfmt(b))
+    local a = datetime.new(os.time())
+    local b = datetime.new(os.date('*t')) 
+    local e = timedelta:new{day=28}
     print(a)
-    
-    local n=3600
-    local s='1970-01-01 01:00:00'
-    local t={year=1970,month=1,day=1,hour=1}
+    print(a+e)
+    print(a-e)
+    print(b)
+    print(b+e)
+    print(b-e)
+
+    local n= 0
+    local s= '1970-01-01 00:00:00'
+    local t= {year=1970,month=1,day=1}
     for i,v in ipairs({n,s,t}) do
        local r = datetime.new(v)
-       print(r)
-       print(r.number)
-       print(r + timedelta:new{day=3})
-       print(r - timedelta:new{day=3})
+       print(r, r.number)
     end
     print(datetime.new('1970-1-01 0:02:00')>datetime.new(s))
     print(datetime.new('1970-1-1 3:2:0')>datetime.new(s))
 end
---test()
+test()
 return {
     datetime=datetime,
     timedelta=timedelta,
