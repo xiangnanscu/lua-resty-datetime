@@ -1,5 +1,5 @@
 # lua-resty-datetime
-Thread safe, lazy style, ffi based datetime library.
+Thread safe, lazy style, ffi based localtime datetime library.
 
 # Requirements
 1. linux 64 bit
